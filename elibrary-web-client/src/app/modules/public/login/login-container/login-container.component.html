@@ -1,1 +1,20 @@
-<p>login-container works!</p>
+<div class="login">
+    <section class="login__cover">
+        <div class="login__wrapper">
+            <h4 class="login__message">
+                Reading is essential for those who seek to rise above the ordinary. Join eLibrary today.
+            </h4>
+            <img class="login__cover-image"
+                 alt="Girl working from home"
+                 [src]="HOMEPAGE_COVER">
+        </div>
+    </section>
+    <section class="login__credentials">
+        <div class="login__credentials-wrapper">
+            <img alt="Elibrary logo"
+                 class="login__logo"
+                 [src]="ELIBRARY_LOGO">
+            <app-login-form></app-login-form>
+        </div>
+    </section>
+</div>

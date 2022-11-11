@@ -1,0 +1,51 @@
+@import 'variables';
+@import 'functions';
+
+.login {
+    display: flex;
+    height: 100vh;
+
+    &__cover {
+        width: 60%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: rem(40px);
+        background-color: $green-light-background;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__message {
+        color: $green-dark;
+        width: 55%;
+        margin-left: 10%;
+    }
+
+    &__cover-image {
+        height: rem(320px);
+        margin-left: 20%;
+        margin-top: rem(20px);
+    }
+
+    &__credentials {
+        width: 40%;
+    }
+
+    &__credentials-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &__logo {
+        height: rem(80px);
+        width: auto;
+        margin-bottom: rem(40px);
+    }
+}

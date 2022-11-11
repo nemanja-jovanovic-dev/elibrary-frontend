@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ELIBRARY_LOGO, HOMEPAGE_COVER } from 'src/app/shared/utils/image-routes.util';
 
 @Component({
     selector: 'app-login-container',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./login-container.component.scss']
 })
 export class LoginContainerComponent implements OnInit {
+
+    HOMEPAGE_COVER = HOMEPAGE_COVER;
+    ELIBRARY_LOGO = ELIBRARY_LOGO;
+
     constructor() {}
 
     ngOnInit(): void {}
