@@ -10,6 +10,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', 'Helvetica', 'Arial', sans-serif;
 }
 
+*:not(h1, h2, h3, h4, h5, h6) {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
 h1 {
     font-size: rem(110px);
     line-height: rem(110px);
@@ -50,4 +54,8 @@ p {
     line-height: rem(24px);
     letter-spacing: 0;
     font-weight: 400;
+}
+
+a {
+    text-decoration: none;
 }

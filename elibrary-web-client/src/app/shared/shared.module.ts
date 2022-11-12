@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../core/material/material.module';
+import { ButtonComponent } from './button/button.component';
 
 const MODULES_TO_IMPORT = [
     CommonModule,
@@ -17,6 +18,7 @@ const MODULES_TO_IMPORT = [
 
 const COMPONENTS_TO_EXPORT = [
     InputComponent,
+    ButtonComponent,
 ]
 
 @NgModule({

@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'functions';
 
 @mixin ellipsis($max-width: null) {
     display: inline-block;
@@ -24,4 +25,16 @@
     -moz-border-radius: $radius;
     -webkit-border-radius: $radius;
     border-radius: $radius;
+}
+
+@mixin btn-base-style() {
+    font-size: $s-14;
+    line-height: $s-20;
+    font-weight: 500;
+    padding: $s-10 $s-20;
+    border-radius: $s-6;
+    border: none;
+    min-width: rem(100px);
+    cursor: pointer;
+    text-transform: uppercase;
 }

@@ -1,17 +1,26 @@
 @import 'variables';
 @import 'functions';
+@import 'mixins';
 
 .login {
     display: flex;
     height: 100vh;
 
     &__cover {
-        width: 60%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        padding: rem(40px);
-        background-color: $green-light-background;
+        display: none;
+
+        @include breakpoint('tablet') {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: rem(40px);
+            background-color: $green-light-background;
+        }
+
+        @include breakpoint('tablet-wide') {
+            width: 60%;
+        }
     }
 
     &__wrapper {
@@ -21,8 +30,12 @@
 
     &__message {
         color: $green-dark;
-        width: 55%;
+        width: 70%;
         margin-left: 10%;
+
+        @include breakpoint('tablet-wide') {
+            width: 55%;
+        }
     }
 
     &__cover-image {
@@ -32,7 +45,15 @@
     }
 
     &__credentials {
-        width: 40%;
+        width: 100%;
+
+        @include breakpoint("tablet") {
+            width: 50%;
+        }
+
+        @include breakpoint('tablet-wide') {
+            width: 40%;
+        }
     }
 
     &__credentials-wrapper {
@@ -44,7 +65,7 @@
     }
 
     &__logo {
-        height: rem(80px);
+        height: rem(60px);
         width: auto;
         margin-bottom: rem(40px);
     }

@@ -1,0 +1,23 @@
+@import 'mixins';
+@import 'variables';
+
+.btn {
+    @include btn-base-style;
+
+    &__primary {
+        color: $cream-font;
+        background-color: $green;
+    }
+
+    &__secondary {
+        border: 1px solid $green;
+        color: $green;
+    }
+
+    &__tertiary {
+        color: $green-dark;
+        text-transform: capitalize;
+        font-weight: 600;
+        background: none;
+    }
+}
