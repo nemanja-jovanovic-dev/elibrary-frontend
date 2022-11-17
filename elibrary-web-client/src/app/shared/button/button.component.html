@@ -1,4 +1,6 @@
 <button class="btn {{cssClass}}"
-        (click)="clickEvent.emit()">
+        [tabIndex]="disabled ? -1 : 1"
+        [disabled]="disabled"
+        (click)="onClick()">
     {{ label }}
 </button>

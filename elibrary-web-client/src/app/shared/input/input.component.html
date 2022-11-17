@@ -3,12 +3,14 @@
     <mat-label>{{ label }}</mat-label>
     <input matInput
            [type]="type"
-           [placeholder]="placeholder">
+           [placeholder]="placeholder"
+           [formControl]="formControl">
     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-    <!-- <mat-error *ngIf="formControl.hasError('email') && !emailFormControl.hasError('required')">
+    <!-- <mat-error *ngIf="formControl.hasError('isEmail') && !formControl.hasError('required')">
         Please enter a valid email address
-    </mat-error>
-    <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
     </mat-error> -->
+    <mat-error>
+        <code>{{ formControl.hasError | json }}</code>
+        <ng-content></ng-content>
+    </mat-error>
 </mat-form-field>

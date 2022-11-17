@@ -26,6 +26,7 @@
     "@ngrx/store-devtools": "^14.3.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "validator": "^13.7.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -35,6 +36,7 @@
     "@ngrx/eslint-plugin": "^14.3.2",
     "@ngrx/schematics": "^14.3.2",
     "@types/jasmine": "~4.0.0",
+    "@types/validator": "^13.7.10",
     "eslint-config-prettier": "^8.5.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",

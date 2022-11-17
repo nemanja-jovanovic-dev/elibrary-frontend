@@ -14,7 +14,8 @@
             <img alt="Elibrary logo"
                  class="login__logo"
                  [src]="ELIBRARY_LOGO">
-            <app-login-form></app-login-form>
+            <app-login-form (singnInEvent)="onSignIn($event)">
+            </app-login-form>
         </div>
     </section>
 </div>
