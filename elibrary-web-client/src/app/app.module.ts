@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule } from '@ngrx/store';
+import { META_REDUCERS, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { RestModule } from './core/rest/rest.module';
+
 import { reducers } from './reducers';
 
 @NgModule({
@@ -17,14 +19,14 @@ import { reducers } from './reducers';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        StoreModule.forRoot({}),
         StoreDevtoolsModule.instrument({
             maxAge: 25,
             logOnly: environment.production
         }),
         EffectsModule.forRoot([]),
-        StoreModule.forRoot(reducers),
-        !environment.production ? StoreDevtoolsModule.instrument() : []
+        StoreModule.forRoot({}),
+        !environment.production ? StoreDevtoolsModule.instrument() : [],
+        RestModule
     ],
     providers: [],
     bootstrap: [AppComponent]
