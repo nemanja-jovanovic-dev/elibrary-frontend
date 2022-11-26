@@ -24,6 +24,6 @@ const COMPONENTS_TO_EXPORT = [
 @NgModule({
     declarations: [...COMPONENTS_TO_EXPORT],
     imports: [...MODULES_TO_IMPORT],
-    exports: [...COMPONENTS_TO_EXPORT]
+    exports: [...COMPONENTS_TO_EXPORT, ...MODULES_TO_IMPORT]
 })
 export class SharedModule {}

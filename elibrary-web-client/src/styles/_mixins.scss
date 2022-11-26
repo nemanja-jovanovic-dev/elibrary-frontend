@@ -37,4 +37,9 @@
     min-width: rem(100px);
     cursor: pointer;
     text-transform: uppercase;
+
+    &[disabled] {
+        opacity: 0.2;
+        cursor: not-allowed;
+    }
 }
