@@ -1,0 +1,61 @@
+@import "functions";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', 'Helvetica', 'Arial', sans-serif;
+}
+
+*:not(h1, h2, h3, h4, h5, h6) {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+h1 {
+    font-size: rem(110px);
+    line-height: rem(110px);
+    letter-spacing: -1.5px;
+    font-weight: 200;
+}
+
+h2 {
+    font-size: rem(68px);
+    line-height: rem(72px);
+    letter-spacing: -0.5px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: rem(42px);
+    line-height: rem(48px);
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: rem(26px);
+    line-height: rem(40px);
+    letter-spacing: .25px;
+    font-weight: 500;
+}
+
+h5 {
+    font-size: 1rem;
+    line-height: rem(24px);
+    letter-spacing: .15px;
+    font-weight: 500;
+}
+
+p {
+    font-size: 1rem;
+    line-height: rem(24px);
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}

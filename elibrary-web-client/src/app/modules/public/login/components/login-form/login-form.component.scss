@@ -1,0 +1,37 @@
+@import 'functions';
+
+:host {
+    width: 100%;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__input-wrapper {
+        width: 60%;
+    }
+
+    &__submit {
+        margin-top: rem(20px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__register-btn {
+        margin-top: rem(10px);
+    }
+
+    &__forgot-password {
+        margin-top: rem(40px);
+        color: $black;
+
+        &-link {
+            color: $green-dark;
+        }
+    }
+}
