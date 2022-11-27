@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { LoginResponse } from '../core/rest/login/model/login-response.model';
+import { UserDetailsModel } from '../core/rest/login/model/login-response.model';
 
 export const login = createAction(
     '[loginModule] log user Action',
@@ -15,3 +15,13 @@ export const loginFail = createAction(
     '[loginModule] log user Fail Action',
     props<{ message: string }>()
 );
+
+export const getUserDetails = createAction(
+    '[loginModule] get user details',
+    props<{token: string}>()
+);
+
+export const getUserDetailsSuccess = createAction(
+    '[loginModule] get user details success',
+    props<{userDetails: UserDetailsModel}>()
+)

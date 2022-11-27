@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable, exhaustMap, tap } from 'rxjs';
 import { LoginRestService } from 'src/app/core/rest/login/login-rest.service';
 import { LoginRequest } from 'src/app/core/rest/login/model/login-request.model';
-import { LoginResponse } from 'src/app/core/rest/login/model/login-response.model';
+import { UserDetailsModel } from 'src/app/core/rest/login/model/login-response.model';
 import { SECURED__DASHBOARD } from 'src/app/core/utils/route-service';
 import { loginSuccess } from 'src/app/reducers/app.actions';
 

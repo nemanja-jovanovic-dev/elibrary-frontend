@@ -1,25 +1,18 @@
 import { Injectable } from '@angular/core';
-import {
-    ActivatedRouteSnapshot,
-    CanActivate,
-    Router,
-    RouterStateSnapshot,
-    UrlTree
-} from '@angular/router';
+import { CanActivate, Router, UrlTree } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AppState } from 'src/app/reducers';
+import * as fromActions from '../../reducers/app.actions';
 import { PUBLIC } from '../utils/route-service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
+    constructor(private router: Router, private store: Store<AppState>) {}
 
-    constructor(private router: Router) {}
-
-    canActivate(
-        route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot
-    ):
+    canActivate():
         | Observable<boolean | UrlTree>
         | Promise<boolean | UrlTree>
         | boolean
@@ -30,6 +23,7 @@ export class LoginGuard implements CanActivate {
             return this.router.navigate([PUBLIC]);
         }
 
+        this.store.dispatch(fromActions.getUserDetails({ token: token }));
         return true;
     }
 }

@@ -1,13 +1,13 @@
 import { Action, createReducer, createSelector, on } from '@ngrx/store';
 import { userSelector } from '.';
-import { LoginResponse } from '../core/rest/login/model/login-response.model';
-import { login, loginFail, loginSuccess } from './app.actions';
+import { UserDetailsModel } from '../core/rest/login/model/login-response.model';
+import { getUserDetailsSuccess, login, loginFail, loginSuccess } from './app.actions';
 
 export interface State {
     username: string;
     password: string;
     authenticationMessage: string;
-    userInfo: LoginResponse | null;
+    userInfo: UserDetailsModel | null;
     token: string | null;
 }
 
@@ -34,6 +34,10 @@ export const reducer = createReducer(
     on(loginFail, (state, { message }) => ({
         ...state,
         authenticationMessage: message
+    })),
+    on(getUserDetailsSuccess, (state: State, {userDetails}) => ({
+        ...state,
+        userInfo: userDetails
     }))
 );
 

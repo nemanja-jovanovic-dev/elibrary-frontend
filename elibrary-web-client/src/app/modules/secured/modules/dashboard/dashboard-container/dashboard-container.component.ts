@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState, getToken } from 'src/app/reducers';
+import { UserDetailsModel } from 'src/app/core/rest/login/model/login-response.model';
+import { AppState, getToken, getUserInfo } from 'src/app/reducers';
 
 @Component({
     selector: 'app-dashboard-container',
@@ -10,7 +11,7 @@ import { AppState, getToken } from 'src/app/reducers';
 })
 export class DashboardContainerComponent implements OnInit {
 
-    userInfo$: Observable<string | null> = this.store.select(getToken);
+    userInfo$: Observable<UserDetailsModel | null> = this.store.select(getUserInfo);
 
     constructor(private store: Store<AppState>) {}
 
