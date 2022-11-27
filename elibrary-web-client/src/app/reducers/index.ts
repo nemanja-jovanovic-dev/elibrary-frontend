@@ -14,3 +14,4 @@ export const appStateSelector = createFeatureSelector<AppState>('user');
 export const userSelector = createSelector(appStateSelector, (state: AppState) => state.user);
 
 export const getUserInfo = createSelector(userSelector, userReducer.getUserInfo);
+export const getToken = createSelector(userSelector, userReducer.getToken);

@@ -8,6 +8,7 @@ export interface State {
     password: string;
     authenticationMessage: string;
     userInfo: LoginResponse | null;
+    token: string | null;
 }
 
 export const initialAppState: State = {
@@ -15,18 +16,20 @@ export const initialAppState: State = {
     password: '',
     authenticationMessage: '',
     userInfo: null,
+    token: ''
 };
 
 export const getUserInfo = (state: State) => state.userInfo;
+export const getToken = (state: State) => state.token;
 
 export const reducer = createReducer(
     initialAppState as State,
     on(login, (state) => ({
         ...state
     })),
-    on(loginSuccess, (state: State, {userInfo}) => ({
+    on(loginSuccess, (state: State, {token}) => ({
         ...state,
-        userInfo: userInfo
+        token: token
     })),
     on(loginFail, (state, { message }) => ({
         ...state,

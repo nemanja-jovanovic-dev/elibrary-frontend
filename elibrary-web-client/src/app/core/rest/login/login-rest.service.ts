@@ -12,8 +12,8 @@ export class LoginRestService {
 
     constructor(private httpClient: HttpClient) {}
 
-    login(credentials: LoginRequest): Observable<LoginResponse> {
-        return this.httpClient.post<LoginResponse>(`${this.controllerUrl}/auth/login`, credentials)
+    login(credentials: LoginRequest): Observable<{token: string}> {
+        return this.httpClient.post<{token: string}>(`${this.controllerUrl}/auth/login`, credentials)
     }
 
 }

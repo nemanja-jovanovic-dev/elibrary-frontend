@@ -11,18 +11,18 @@ import { loginSuccess } from 'src/app/reducers/app.actions';
 
 interface State {
     loading: boolean;
-    credentials: LoginResponse | null;
+    token: string | null;
 }
 
 const INITIAL_STATE: State = {
     loading: false,
-    credentials: null
+    token: null
 };
 
 @Injectable()
 export class LoginStore extends ComponentStore<State> {
-    credentials$: Observable<LoginResponse | null> = this.select(
-        (state) => state.credentials
+    token$: Observable<string | null> = this.select(
+        (state) => state.token
     );
 
     constructor(
@@ -34,9 +34,9 @@ export class LoginStore extends ComponentStore<State> {
     }
 
     setCredentials = this.updater(
-        (state: State, credentials: LoginResponse) => ({
+        (state: State, token: string) => ({
             ...state,
-            credentials
+            token
         })
     );
 
@@ -44,17 +44,20 @@ export class LoginStore extends ComponentStore<State> {
         credentials$.pipe(
             exhaustMap((credentials) => {
                 return this.loginRestService.login(credentials).pipe(
-                    tap((response) => {
-                        this.setCredentials(response);
-                        this.setUserInfoAndRedirect(response);
+                    tap((response: {token: string}) => {
+                        console.log(response);
+
+                        this.setCredentials(response.token);
+                        this.setUserInfoAndRedirect(response.token);
                     })
                 );
             })
         )
     );
 
-    private setUserInfoAndRedirect(userInfo: LoginResponse): void {
-        this.store.dispatch(loginSuccess({userInfo: userInfo}));
+    private setUserInfoAndRedirect(token: string): void {
+        window.localStorage.setItem('token', token);
+        this.store.dispatch(loginSuccess({token: token}));
         this.router.navigate([SECURED__DASHBOARD]);
     }
 }
