@@ -1,0 +1,79 @@
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+
+.register {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+
+    &__cover-container {
+        display: none;
+
+        @include breakpoint(desktop) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            background-color: $green-light-background;
+        }
+    }
+
+    &__cover {
+        height: 80%;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__logo {
+        width: 30%;
+        height: auto;
+    }
+
+    &__cover-image {
+        width: 80%;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+        right: rem(-40px);
+    }
+
+    &__form-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include breakpoint(desktop) {
+            width: 60%;
+        }
+    }
+
+    &__form {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        margin-bottom: rem(80px);
+        color: $green-dark;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+
+        &--submit {
+            margin-top: rem(40px);
+        }
+
+        &--back {
+            margin-top: rem(10px);
+        }
+    }
+}

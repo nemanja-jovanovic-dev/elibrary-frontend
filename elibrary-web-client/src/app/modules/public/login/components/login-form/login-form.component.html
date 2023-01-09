@@ -1,16 +1,16 @@
 <div class="form">
     <form class="form__input-wrapper"
-    [formGroup]="form">
+          [formGroup]="form">
         <div class="form__input">
             <app-input [label]="'Email'"
                        [type]="'email'"
                        [formControlName]="'email'"
                        [placeholder]="'example@mail.com'">
-                       <p error-message>
-                        <span *ngIf="form.invalid">
-                            This field is required
-                        </span>
-                       </p>
+                <p error-message>
+                    <span *ngIf="form.invalid">
+                        This field is required
+                    </span>
+                </p>
             </app-input>
         </div>
 
@@ -33,7 +33,8 @@
 
             <div class="form__register-btn">
                 <app-button [label]="'Register'"
-                            [cssClass]="'btn__tertiary'">
+                            [cssClass]="'btn__tertiary'"
+                            (clickEvent)="register()">
                 </app-button>
             </div>
 
