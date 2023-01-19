@@ -6,7 +6,7 @@ import { LoginRequest } from './model/login-request.model';
 import { UserDetailsModel } from './model/login-response.model';
 
 @Injectable()
-export class LoginRestService {
+export class UserRestService {
 
     private controllerUrl = `${environment.location}/api`;
 
@@ -14,6 +14,10 @@ export class LoginRestService {
 
     login(credentials: LoginRequest): Observable<{token: string}> {
         return this.httpClient.post<{token: string}>(`${this.controllerUrl}/auth/login`, credentials)
+    }
+
+    register(form: any): Observable<any> {
+        return this.httpClient.post<any>(`${this.controllerUrl}/auth/register`, form);
     }
 
     getUserDetails(token: string): Observable<UserDetailsModel> {

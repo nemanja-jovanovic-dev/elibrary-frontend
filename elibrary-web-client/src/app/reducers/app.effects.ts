@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map } from 'rxjs';
-import { LoginRestService } from '../core/rest/login/login-rest.service';
+import { UserRestService } from '../core/rest/login/login-rest.service';
 import * as fromActions from './app.actions';
 
 @Injectable()
 export class LoginEffect {
     constructor(
         private readonly actions$: Actions,
-        private readonly loginRestService: LoginRestService
+        private readonly loginRestService: UserRestService
     ) {}
 
     getUserDetails$ = createEffect(() => {

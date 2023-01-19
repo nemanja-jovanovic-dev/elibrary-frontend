@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 import { Observable, exhaustMap, tap } from 'rxjs';
-import { LoginRestService } from 'src/app/core/rest/login/login-rest.service';
+import { UserRestService } from 'src/app/core/rest/login/login-rest.service';
 import { LoginRequest } from 'src/app/core/rest/login/model/login-request.model';
 import { UserDetailsModel } from 'src/app/core/rest/login/model/login-response.model';
 import { SECURED__DASHBOARD } from 'src/app/core/utils/route-service';
@@ -26,7 +26,7 @@ export class LoginStore extends ComponentStore<State> {
     );
 
     constructor(
-        private loginRestService: LoginRestService,
+        private loginRestService: UserRestService,
         private router: Router,
         private store: Store<State>
     ) {
