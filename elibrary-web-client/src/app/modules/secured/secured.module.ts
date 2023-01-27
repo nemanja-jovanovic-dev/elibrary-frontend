@@ -1,10 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContainerComponent } from './container/container.component';
-import { StoreModule } from '@ngrx/store';
 
-import { reducers } from 'src/app/reducers';
 
 const routes: Routes = [
     {
@@ -28,7 +26,6 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        // StoreModule.forFeature('user', reducers)
     ]
 })
 export class SecuredModule {}

@@ -1,13 +1,14 @@
 import { Action, createReducer, createSelector, on } from '@ngrx/store';
 import { userSelector } from '.';
-import { LoginResponse } from '../core/rest/login/model/login-response.model';
-import { login, loginFail, loginSuccess } from './app.actions';
+import { UserDetailsModel } from '../core/rest/login/model/login-response.model';
+import { getUserDetailsSuccess, login, loginFail, loginSuccess } from './app.actions';
 
 export interface State {
     username: string;
     password: string;
     authenticationMessage: string;
-    userInfo: LoginResponse | null;
+    userInfo: UserDetailsModel | null;
+    token: string | null;
 }
 
 export const initialAppState: State = {
@@ -15,22 +16,28 @@ export const initialAppState: State = {
     password: '',
     authenticationMessage: '',
     userInfo: null,
+    token: ''
 };
 
 export const getUserInfo = (state: State) => state.userInfo;
+export const getToken = (state: State) => state.token;
 
 export const reducer = createReducer(
     initialAppState as State,
     on(login, (state) => ({
         ...state
     })),
-    on(loginSuccess, (state: State, {userInfo}) => ({
+    on(loginSuccess, (state: State, {token}) => ({
         ...state,
-        userInfo: userInfo
+        token: token
     })),
     on(loginFail, (state, { message }) => ({
         ...state,
         authenticationMessage: message
+    })),
+    on(getUserDetailsSuccess, (state: State, {userDetails}) => ({
+        ...state,
+        userInfo: userDetails
     }))
 );
 

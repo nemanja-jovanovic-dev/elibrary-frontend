@@ -3,30 +3,30 @@ import { Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 import { Observable, exhaustMap, tap } from 'rxjs';
-import { LoginRestService } from 'src/app/core/rest/login/login-rest.service';
+import { UserRestService } from 'src/app/core/rest/login/login-rest.service';
 import { LoginRequest } from 'src/app/core/rest/login/model/login-request.model';
-import { LoginResponse } from 'src/app/core/rest/login/model/login-response.model';
+import { UserDetailsModel } from 'src/app/core/rest/login/model/login-response.model';
 import { SECURED__DASHBOARD } from 'src/app/core/utils/route-service';
 import { loginSuccess } from 'src/app/reducers/app.actions';
 
 interface State {
     loading: boolean;
-    credentials: LoginResponse | null;
+    token: string | null;
 }
 
 const INITIAL_STATE: State = {
     loading: false,
-    credentials: null
+    token: null
 };
 
 @Injectable()
 export class LoginStore extends ComponentStore<State> {
-    credentials$: Observable<LoginResponse | null> = this.select(
-        (state) => state.credentials
+    token$: Observable<string | null> = this.select(
+        (state) => state.token
     );
 
     constructor(
-        private loginRestService: LoginRestService,
+        private loginRestService: UserRestService,
         private router: Router,
         private store: Store<State>
     ) {
@@ -34,9 +34,9 @@ export class LoginStore extends ComponentStore<State> {
     }
 
     setCredentials = this.updater(
-        (state: State, credentials: LoginResponse) => ({
+        (state: State, token: string) => ({
             ...state,
-            credentials
+            token
         })
     );
 
@@ -44,17 +44,20 @@ export class LoginStore extends ComponentStore<State> {
         credentials$.pipe(
             exhaustMap((credentials) => {
                 return this.loginRestService.login(credentials).pipe(
-                    tap((response) => {
-                        this.setCredentials(response);
-                        this.setUserInfoAndRedirect(response);
+                    tap((response: {token: string}) => {
+                        console.log(response);
+
+                        this.setCredentials(response.token);
+                        this.setUserInfoAndRedirect(response.token);
                     })
                 );
             })
         )
     );
 
-    private setUserInfoAndRedirect(userInfo: LoginResponse): void {
-        this.store.dispatch(loginSuccess({userInfo: userInfo}));
+    private setUserInfoAndRedirect(token: string): void {
+        window.localStorage.setItem('token', token);
+        this.store.dispatch(loginSuccess({token: token}));
         this.router.navigate([SECURED__DASHBOARD]);
     }
 }

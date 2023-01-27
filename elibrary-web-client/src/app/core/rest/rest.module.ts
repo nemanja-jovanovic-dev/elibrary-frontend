@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginRestService } from './login/login-rest.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { UserRestService } from './login/login-rest.service';
 
-const PROVIDERS = [LoginRestService];
+const PROVIDERS = [UserRestService];
 
 @NgModule({
     declarations: [],

@@ -1,0 +1,35 @@
+<div class="register">
+    <section class="register__cover-container">
+        <div class="register__cover">
+            <img alt="Elibrary logo"
+                 class="register__logo"
+                 [src]="ELIBRARY_LOGO">
+
+            <img alt="Girl sitting"
+                 class="register__cover-image"
+                 [src]="REGISTER_COVER">
+        </div>
+    </section>
+
+    <section class="register__form-wrapper">
+        <div class="register__form">
+            <h3 class="register__title">Register</h3>
+
+            <app-register-form></app-register-form>
+
+            <div class="register__btn register__btn--submit">
+                <app-button [label]="'Register'"
+                            [cssClass]="'btn__primary'"
+                            (clickEvent)="onRegister()">
+                </app-button>
+            </div>
+
+            <div class="register__btn register__btn--back">
+                <app-button [label]="'Back'"
+                            [cssClass]="'btn__tertiary'"
+                            (clickEvent)="onBack()">
+                </app-button>
+            </div>
+        </div>
+    </section>
+</div>

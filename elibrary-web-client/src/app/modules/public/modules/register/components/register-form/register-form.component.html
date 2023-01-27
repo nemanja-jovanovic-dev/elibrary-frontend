@@ -1,0 +1,35 @@
+<form class="form"
+      [formGroup]="form">
+    <app-input [label]="'Name'"
+               [type]="'text'"
+               [formControlName]="'name'"
+               [placeholder]="'John Doe'">
+        <p error-message>
+            <span *ngIf="form.invalid">
+                This field is required
+            </span>
+        </p>
+    </app-input>
+
+    <app-input [label]="'Email'"
+               [type]="'email'"
+               [formControlName]="'email'"
+               [placeholder]="'johndoe@company.com'">
+        <p error-message>
+            <span *ngIf="form.invalid">
+                This field is required
+            </span>
+        </p>
+    </app-input>
+
+    <app-input [label]="'Password'"
+               [type]="'password'"
+               [formControlName]="'password'"
+               [placeholder]="'********'">
+        <p error-message>
+            <span *ngIf="form.invalid">
+                This field is required
+            </span>
+        </p>
+    </app-input>
+</form>
