@@ -6,12 +6,12 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 const routes: Routes = [
 	{ path: '', pathMatch: 'full', redirectTo: 'public' },
 	{
-		path: 'public',
+		path: 'p',
 		loadChildren: () =>
 			import('./modules/public/public.module').then((m) => m.PublicModule)
 	},
     {
-		path: 'secured',
+		path: 's',
         canActivate: [LoginGuard],
 		loadChildren: () =>
 			import('./modules/secured/secured.module').then((m) => m.SecuredModule)

@@ -1,19 +1,47 @@
-import { Injectable } from "@angular/core";
-import { ComponentStore } from "@ngrx/component-store";
+import { Injectable } from '@angular/core';
+import { ComponentStore, tapResponse } from '@ngrx/component-store';
+import { exhaustMap, withLatestFrom } from 'rxjs';
+import { UserRestService } from 'src/app/core/rest/login/user-rest.service';
+import { RegisterFormValue } from '../components/register-form/register-form.component';
 
 interface State {
-    //form
+    formValue: RegisterFormValue | null;
 }
 
 const INITIAL_STATE: State = {
-
-}
+    formValue: null
+};
 
 @Injectable()
 export class RegisterStore extends ComponentStore<State> {
-    constructor() {
-        super(INITIAL_STATE)
+    formValue$ = this.select((state) => state.formValue);
+
+    constructor(private userRestService: UserRestService) {
+        super(INITIAL_STATE);
     }
 
-    //register effect
+    setFormValue = this.updater(
+        (state: State, formValue: RegisterFormValue) => ({
+            ...state,
+            formValue
+        })
+    );
+
+    register = this.effect((trigger$) =>
+        trigger$.pipe(
+            withLatestFrom(this.formValue$),
+            exhaustMap(([_, formValue]: [void, RegisterFormValue | null]) => {
+                return this.userRestService
+                    .register(formValue as RegisterFormValue)
+                    .pipe(
+                        tapResponse(
+                            (res) => {
+                                console.log('response: ', res);
+                            },
+                            (err) => console.error(err)
+                        )
+                    );
+            })
+        )
+    );
 }
