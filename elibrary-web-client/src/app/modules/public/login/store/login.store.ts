@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
-import { Observable, exhaustMap, tap } from 'rxjs';
-import { UserRestService } from 'src/app/core/rest/login/user-rest.service';
+import { exhaustMap, Observable, tap } from 'rxjs';
 import { LoginRequest } from 'src/app/core/rest/login/model/login-request.model';
-import { UserDetailsModel } from 'src/app/core/rest/login/model/login-response.model';
-import { SECURED__DASHBOARD } from 'src/app/core/utils/route-service';
+import { UserRestService } from 'src/app/core/rest/login/user-rest.service';
+import { SECURED__HOME } from 'src/app/core/utils/route-service';
 import { loginSuccess } from 'src/app/reducers/app.actions';
 
 interface State {
@@ -58,6 +57,6 @@ export class LoginStore extends ComponentStore<State> {
     private setUserInfoAndRedirect(token: string): void {
         window.localStorage.setItem('token', token);
         this.store.dispatch(loginSuccess({token: token}));
-        this.router.navigate([SECURED__DASHBOARD]);
+        this.router.navigate([SECURED__HOME]);
     }
 }
