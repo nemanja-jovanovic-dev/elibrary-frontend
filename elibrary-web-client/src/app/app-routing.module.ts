@@ -4,7 +4,7 @@ import { LoginGuard } from './core/guards/login.guard';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
-	{ path: '', pathMatch: 'full', redirectTo: 'public' },
+	{ path: '', pathMatch: 'full', redirectTo: 'p' },
 	{
 		path: 'p',
 		loadChildren: () =>
