@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map } from 'rxjs';
-import { UserRestService } from '../core/rest/login/login-rest.service';
+import { UserRestService } from '../core/rest/login/user-rest.service';
 import * as fromActions from './app.actions';
 
 @Injectable()
