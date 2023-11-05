@@ -26,7 +26,8 @@ import { reducers } from './reducers';
         EffectsModule.forRoot([]),
         StoreModule.forRoot({}),
         !environment.production ? StoreDevtoolsModule.instrument() : [],
-        RestModule
+        RestModule,
+        StoreModule.forRoot({}, {})
     ],
     providers: [],
     bootstrap: [AppComponent]
