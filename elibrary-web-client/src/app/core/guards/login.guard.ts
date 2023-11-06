@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, UrlTree } from '@angular/router';
+import { Router, UrlTree } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/reducers';
@@ -9,7 +9,7 @@ import { PUBLIC } from '../utils/route-service';
 @Injectable({
     providedIn: 'root'
 })
-export class LoginGuard implements CanActivate {
+export class LoginGuard  {
     constructor(private router: Router, private store: Store<AppState>) {}
 
     canActivate():

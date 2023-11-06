@@ -16,6 +16,6 @@ export class DashboardContainerComponent implements OnInit {
     constructor(private store: Store<AppState>) {}
 
     ngOnInit(): void {
-        this.userInfo$.subscribe(value => console.log(value));
+        // this.userInfo$.subscribe(value => console.log(value));
     }
 }

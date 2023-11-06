@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.main {
+    padding: rem(64px) rem(80px);
+    height: 100%;
+    width: 100%;
+}

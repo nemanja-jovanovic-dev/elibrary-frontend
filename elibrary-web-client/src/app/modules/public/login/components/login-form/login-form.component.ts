@@ -5,13 +5,13 @@ import { REGISTER } from 'src/app/core/utils/route-service';
 import { emailValidator } from 'src/app/core/validators/form.validator';
 
 type Login = {
-    email: FormControl<string | null>;
-    password: FormControl<string | null>;
+    email: FormControl<string>;
+    password: FormControl<string>;
 };
 
 export type LoginFormValue = Partial<{
-    email: string | null;
-    password: string | null;
+    email: string;
+    password: string;
 }>;
 
 @Component({
@@ -22,7 +22,7 @@ export type LoginFormValue = Partial<{
 export class LoginFormComponent implements OnInit {
     @Output() singnInEvent = new EventEmitter<LoginFormValue>();
 
-    form!: FormGroup<Login>;
+    form: FormGroup<Login>;
 
     constructor(private router: Router) {}
 

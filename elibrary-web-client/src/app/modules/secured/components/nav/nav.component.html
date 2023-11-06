@@ -1,0 +1,56 @@
+<nav class="nav">
+    <!-- Rethink about dynamic route implementation with some interface?
+         Not neccessary not, but it would be easier to scale.
+    -->
+    <img alt="Elibrary logo"
+         class="nav__logo"
+         [src]="ELIBRARY_LOGO">
+
+    <div class="menu">
+
+        <a [routerLink]="SECURED__HOME"
+           [routerLinkActive]="'menu__item--active'"
+           class="menu__item">
+            <span class="menu__item-content">
+                <i class="fa fa-home menu__item-icon"></i>
+                Home
+            </span>
+        </a>
+
+        <a [routerLink]="SECURED__BOOKS"
+           [routerLinkActive]="'menu__item--active'"
+           class="menu__item">
+            <span class="menu__item-content">
+                <i class="fa fa-book menu__item-icon"></i>
+                Books
+            </span>
+        </a>
+
+        <a [routerLink]="SECURED__SAVED_BOOKS"
+           [routerLinkActive]="'menu__item--active'"
+           class="menu__item">
+            <span class="menu__item-content">
+                <i class="fa fa-bookmark menu__item-icon"></i>
+                Saved Books
+            </span>
+        </a>
+
+        <a [routerLink]="SECURED__IN_PROGRESS"
+           [routerLinkActive]="'menu__item--active'"
+           class="menu__item">
+            <span class="menu__item-content">
+                <i class="fa fa-tasks menu__item-icon"></i>
+                In Progress
+            </span>
+        </a>
+
+        <a [routerLink]="SECURED__WHISHLIST"
+           [routerLinkActive]="'menu__item--active'"
+           class="menu__item">
+            <span class="menu__item-content">
+                <i class="fa fa-heart menu__item-icon"></i>
+                Whishlist
+            </span>
+        </a>
+    </div>
+</nav>
